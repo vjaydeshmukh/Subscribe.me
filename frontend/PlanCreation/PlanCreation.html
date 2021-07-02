@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
+  <link href="formStyle.css" rel="stylesheet" />
+  <title>Plan Creation </title>
+</head>
+
+<body onload="main()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png"
+          border="0" alt="PayPal Logo" style="vertical-align: sub;"> <strong><em>Subscriptions</em></strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../SignIn/SignIn.html">Authorise</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="../ProductCreationPage/ProductCreation.html">Create a Service</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../ProductDetailsPage/ProductDetails.html">View Service Details</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Plans
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Create a Plan</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../PlanDetailsPage/PlanDetails.html">View Plan Details</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../ManageSubscriptionPage/ManageSubscription.html">Manage Subscriptions</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <button class="btn btn-outline-secondary" onclick="logout()">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="content" class="hidden-display mx-5">
+      <form>
+        <div class="form-group">
+          <select class="form-select form-select-lg m-3" id="select-product" aria-label="Default select example"
+            disabled onchange="onProductChangeSelectHandler()">
+            <option value="" selected>Select a Product</option>
+          </select>
+        </div>
+      </form>
+
+      <h1>Choose subscription Plan</h1>
+
+      <form class="row g-3 subForm">
+        <div class="col-md-6">
+          <label for="inputName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="inputName" required>
+        </div>
+        <div class="col-md-6">
+          <label for="inputDescription" class="form-label">Description</label>
+          <input type="text" class="form-control" id="inputDescription" required>
+        </div>
+        <h2 class="text-center "> Choose the Billing Plan</h2>
+
+        <div class="row">
+          <div class="col-md-6 regular ml-1">
+
+            <h3>Regular subscription Details</h3>
+            <div class="row">
+              <div class="col-3">
+                <br>
+                <span class="text-center">Frequency</span>
+              </div>
+              <div class="col-4">
+                <label for="interval2" class="form-label col-3">Interval Unit</label>
+                <input type="text" class="form-control" placeholder="MONTH" id="interval2" required>
+              </div>
+              <div class="col-4">
+                <label for="inputic2" class="form-label col-3">Interval Count</label>
+                <input type="number" class="form-control" id="inputic2" placeholder="1" required>
+              </div>
+            </div>
+            <div class="form-group row mt-4">
+              <label for="inputttype2" class="col-3 col-form-label">Tenure Type</label>
+              <div class="col-8">
+                <select required class="form-control" id="inputttype2">
+                  <option value="REGULAR">REGULAR</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <label for="inputseq2" class="col-3 col-form-label">Sequence</label>
+              <div class="col-9">
+                <input type="number" class="form-control" id="inputseq2" placeholder="" required>
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <label for="inputtc2" class="col-3 col-form-label">Total Cycles</label>
+              <div class="col-9">
+                <input type="number" class="form-control" id="inputtc2" placeholder="" required>
+              </div>
+            </div>
+            <h6 class="text-center">Fixed Pricing</h6>
+            <div class="form-group row mt-2">
+              <label for="priceValue" class="col-3 col-form-label">Value</label>
+              <div class="col-9">
+                <input type="number" class="form-control" id="priceValue" placeholder="" required>
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <label for="currency" class="col-3 col-form-label">Currency </label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="currency" placeholder="" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 regular">
+            <h2>Choose payment preferences</h2>
+            <div class="row">
+              <div class="form-group row mt-2">
+                <label for="serviceType" class="col-3 col-form-label">Service Type</label>
+                <div class="col-8">
+                  <select required class="form-control" id='serviceType'>
+                    <option value="PREPAID">PREPAID</option>
+                    <option value="POSTPAID">POSTPAID</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group form-check">
+                <input class="form-check-input col-5 items-right" type="checkbox" value="" id="autobill" checked>
+                <label class="form-check-label col-7" for="autobill">
+                  Auto Bill Outstanding
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-5">
+                <br>
+                <span class="text-center">Setup fee</span>
+              </div>
+              <div class="col-4">
+                <label for="fee" class="form-label col-3">Fee</label>
+                <input type="number" class="form-control" id="fee" required>
+              </div>
+              <div class="col-3">
+                <label for="currencyCode" class="form-label col-3">Currency code</label>
+                <input type="text" class="form-control" id="currencyCode" value="USD">
+              </div>
+            </div>
+
+            <div class="form-group row mt-2">
+              <label for="feeFail" class="col-5 col-form-label">Setup fee failure action</label>
+              <div class="col-7">
+                <input type="text" class="form-control" id="feeFail" placeholder="" required>
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <label for="failThreshold" class="col-5 col-form-label">Payment failure threshold</label>
+              <div class="col-7">
+                <input type="number" class="form-control" id="failThreshold" placeholder="" required>
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <h3 class="pl-2"></h3>
+          <div class="row">
+            <div class="form-group form-check">
+              <input class="form-check-input" type="checkbox" value="" id="quantity_supported" checked>
+              <label class="form-check-label" for="quantity_supported">
+                Quantity supported
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <br>
+              <span class="text-center">Taxes</span>
+            </div>
+            <div class="col-4">
+              <label for="percentage" class="form-label col-6">Percentage</label>
+              <input type="number" class="form-control" id="percentage" required>
+            </div>
+            <div class="form-group form-check col-3">
+              <br>
+              <input class="form-check-input" type="checkbox" value="" id="inclusive">
+              <label class="form-check-label" for="inclusive">Inclusive</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button onclick=createPlans() id="submit-plan" type="button" class="btn btn-primary my-3">Create Subscription
+              Plan
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="no-content">
+    <div class="jumbotron">
+      <h1 class="display-4">Session Expired</h1>
+      <p>Kindly sign in again for authorisation.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="../SignIn/SignIn.html" role="button">Authorise again</a>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+  <script src="form.js"></script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

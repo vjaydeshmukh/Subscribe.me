@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+  <link href="formStyle.css" rel="stylesheet" />
+  <title>Sign in</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img
+                  src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" border="0"
+                  alt="PayPal Logo" style="vertical-align: sub;"> <strong><em>Subscriptions</em></strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Authorise</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Services
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="../ProductCreationPage/ProductCreation.html">Create a Service</a></li>
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="../ProductDetailsPage/ProductDetails.html">View Service Details</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Plans
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="../PlanCreation/PlanCreation.html">Create a Plan</a></li>
+                          <li>
+                              <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="../PlanDetailsPage/PlanDetails.html">View Plan Details</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="../ManageSubscriptionPage/ManageSubscription.html">Manage Subscriptions</a>
+                  </li>
+              </ul>
+              <form class="d-flex">
+                  <button class="btn btn-outline-secondary" onclick="logout()">Logout</button>
+              </form>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Actual Content -->
+  <h1 class="center1" class="display-5">Sign-in to the App</h1>
+  <div class="center">
+    <form class="formStyle.css">
+      <div style="margin-bottom:10px" class="mb-3">
+        <label for="clientId">Merchant Identifier</label>
+        <input style="margin-left:20px" type="text" class="form-control" id="clientId"
+          placeholder="Your clientId goes here" size="30">
+      </div>
+      <div style="margin-bottom:25px" class="mb-3">
+        <label for="clientSecret">Merchant Secret Key</label>
+        <input style="margin-left:5px" type="password" class="form-control" id="clientSecret"
+          placeholder="And your secret key goes here" size="30">
+      </div>
+      <div class="text-center my-3">
+        <button style="margin-bottom:10px" type="button" id="login-button" class="btn btn-primary"
+            onclick="setLocalStorage()">Login</button>
+        </div>
+    </form>
+  </div>
+
+  <script src="form.js"></script>
+
+
+
+</body>
+
+</html>
